@@ -1,0 +1,23 @@
+{
+  "Ridge": {
+    "best_params": {
+      "regressor__alpha": 10.0,
+      "regressor__solver": "auto"
+    },
+    "best_score": 0.9560893700858312
+  },
+  "Lasso": {
+    "best_params": {
+      "regressor__alpha": 0.1,
+      "regressor__max_iter": 1000
+    },
+    "best_score": 1.0057106320660156
+  },
+  "RandomForest": {
+    "best_params": {
+      "regressor__max_depth": 10,
+      "regressor__n_estimators": 200
+    },
+    "best_score": 0.8847085151973951
+  }
+}
