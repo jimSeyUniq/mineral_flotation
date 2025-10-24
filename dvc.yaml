@@ -17,7 +17,7 @@ stages:
     outs:
       - data/processed/X_train_scaled.csv
       - data/processed/X_test_scaled.csv
-
+      - data/processed/scaler.pkl
   train:
     cmd: python src/models/train_model.py
     deps:
