@@ -59,6 +59,19 @@ stages:
       hash: md5
       md5: a9cd9d91da89f732843d72548f64ded3
       size: 25951
+    - path: models/grid_search_results.json
+      hash: md5
+      md5: 6f4eb860562e28c09014b15bb4c4c6bb
+      size: 460
+    outs:
+    - path: models/final_model.pkl
+      hash: md5
+      md5: dedfae4fac380e908ee689448bf383e1
+      size: 7767914
+    - path: models/train_metrics.json
+      hash: md5
+      md5: eb817d4a878914c3ebad93f5366ef0d7
+      size: 81
   evaluate:
     cmd: python src/models/evaluate_model.py
     deps:
@@ -74,3 +87,40 @@ stages:
       hash: md5
       md5: dedfae4fac380e908ee689448bf383e1
       size: 7767914
+    outs:
+    - path: metrics/evaluation_metrics.json
+      hash: md5
+      md5: b2961c9edb563d9d8bbc31592cb54963
+      size: 225
+    - path: metrics/predictions.csv
+      hash: md5
+      md5: 58d114a10da41aa204e5a2c5326788d1
+      size: 13228
+  grid_search:
+    cmd: python src/models/grid_search.py
+    deps:
+    - path: data/processed/X_train_scaled.csv
+      hash: md5
+      md5: 2ae9ad49829e68d0be841d195f490fc0
+      size: 256562
+    - path: data/processed/y_train.csv
+      hash: md5
+      md5: a9cd9d91da89f732843d72548f64ded3
+      size: 25951
+    outs:
+    - path: models/Lasso_best_model.pkl
+      hash: md5
+      md5: 5c5ec1649ab81d93e2a388f117c0d6d5
+      size: 1744
+    - path: models/RandomForest_best_model.pkl
+      hash: md5
+      md5: b5508ee279a50f255f50c093fc7f340d
+      size: 7767898
+    - path: models/Ridge_best_model.pkl
+      hash: md5
+      md5: a7159579a9c4ae770c2d9eb6f5f3b5c4
+      size: 1665
+    - path: models/grid_search_results.json
+      hash: md5
+      md5: 6f4eb860562e28c09014b15bb4c4c6bb
+      size: 460
